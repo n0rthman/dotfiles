@@ -4,3 +4,4 @@ alias tls="t ls"
 alias tn="t new -t"
 #alias nano='/usr/local/bin/nano' #for Intel
 alias nano='/opt/homebrew/bin/nano' #for Apple Silicon Mac
+alias lx="exa --git -lgS"
