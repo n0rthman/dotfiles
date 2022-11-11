@@ -5,3 +5,129 @@ alias tn="t new -t"
 #alias nano='/usr/local/bin/nano' #for Intel
 alias nano='/opt/homebrew/bin/nano' #for Apple Silicon Mac
 alias lx="exa --git -lgS"
+
+#Git aliases
+alias g='git'
+alias gA='git add --all :/'
+alias ga='git add'
+alias gaa='gA ; st'
+alias gac='git add `git status -uall | egrep "#\tboth modified:" | cut -d: -f2`'
+alias gap='clear; git add --all --patch'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gbl='git branch -v -a'
+alias gca='git commit --amend'
+alias gcane='git commit --amend --no-edit'
+alias gcanes='gcane --gpg-sign'
+alias gcanoe='gcne'
+alias gcanoes='gcne --gpg-sign'
+alias gcanv='git commit --amend --no-verify'
+alias gcia='git commit --amend'
+alias gcnv='git commit --no-verify'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdd='git difftool'
+alias gdt='git difftool'
+alias gdw='git diff -w'
+alias gf='git fetch'
+alias gfa='git fetch --all'
+alias gfix='git rebase -i HEAD~10'
+alias gfixup='git rebase -i HEAD~10'
+alias gfrb='git fetch && git rebase origin/main'
+alias gg='git grep'
+alias gh='git stash'
+alias ghl='git stash list'
+alias ghp='git stash pop'
+alias ghs='git stash save'
+alias ghsp='git stash save --patch'
+alias ghw='git stash show -p'
+alias gist='gist -p -c'
+alias gk='gitk &>/dev/null'
+alias gl1='git log -n 1'
+alias gl='git quicklog -n 20'
+alias gll='git quicklog-long'
+alias gls='git log --show-signature'
+alias gm='git merge'
+alias gmom='git merge origin'
+alias gmt='git mergetool'
+alias gp='git push'
+alias gpgdecrypt='gpg --decrypt-files'
+alias gpgencrypt='gpg --default-recipient-self --armor --encrypt-files'
+alias gph='git push heroku'
+alias gpo='git push origin'
+alias gpof='git push origin --force-with-lease'
+alias gponv='git push origin --no-verify'
+alias gpot='git push origin --tags'
+alias gpox='git push origin &>/dev/null & ; disown'
+alias grb='git rebase'
+alias grbc='GIT_EDITOR=true git rebase --continue'
+alias grbi='git rebase -i'
+alias grbs='git rebase --skip'
+alias gs='git show -p'
+alias gsm='git submodule'
+alias gsmu='git submodule update --init --recursive'
+alias gss='git show -p --stat'
+alias gt='git tag'
+alias gu='git unstage'
+alias gup='git up'
+alias gus='git unstage'
+alias gvc='vim `git diff --name-only --diff-filter=U`'
+alias gvm='vim `git diff --name-only --diff-filter=M`'
+alias h='heroku'
+alias i4='sed "s/^/    /"'
+alias icat='imgcat'
+alias ils='imgls'
+alias jqi='_jqi () { echo "" | fzf --print-query --preview "cat $@ | jq {q}" }; _jqi'
+alias k='tree -h'
+alias l="ls -lh"
+alias ll="l -a"
+alias lt='ls -lt'
+alias ltr='ls -ltr'
+alias nerdcrap='cat /dev/urandom | xxd | grep --color=never --line-buffered -E "00 00[0-2]"'
+alias nohist='HISTFILE='
+alias notifydone='terminal-notifier -message Done.'
+alias p='pnpm'
+alias pkgcat='lsbom -f -l -s -pf'
+alias pkginstall='sudo installer -target / -pkg'
+alias pkgls='ls /var/db/receipts/'
+alias pt='pstree -pul'
+alias rake='noglob rake'
+alias randnum='python -S -c "import random; print(random.SystemRandom().randrange(10**7,10**8))"'
+alias randpass="openssl rand -base64 12 | tr -d '\n'"
+alias rgg='_rgg () { rg --color always --heading $@ | less }; _rgg'
+alias ri='ri -f ansi'
+alias rls='screen -ls'
+alias rrg='rgg'
+alias rsync-usual='rsync -azv -e ssh --delete --progress'
+alias rxvt-invert="echo -n '[?5t'"
+alias rxvt-scrollbar="echo -n '[?30t'"
+alias scp='scp -C -p'
+alias screen='screen -U'
+alias slurp='wget -t 5 -c -nH -r -k -p -N --no-parent'
+alias st='git status'
+alias stt='git status -uall'
+
+# Debian APT
+alias Ac='sudo apt autoclean'
+alias Ag='sudo apt install'
+alias Ai='apt show'
+alias Ar='sudo apt remove'
+alias Arm='sudo apt autoremove'
+alias Arp='sudo apt remove --purge'
+alias As='apt search'
+
+# Fun
+alias nerdcrap='cat /dev/urandom | xxd | grep --color=never --line-buffered -E "00 00[0-2]"'
+
+# Random
+alias randnum='python -S -c "import random; print(random.SystemRandom().randrange(10**7,10**8))"'
+alias randpass="openssl rand -base64 12 | tr -d '\n'"
+
+# History control. Don't bother with history if we can't write to the file,
+# like if we're using sudo.
+if [ -w ~/.zsh_history -o -w ~ ]; then
+  SAVEHIST=100000
+  HISTSIZE=100000
+  HISTFILE=~/.zsh_history
+fi
+
